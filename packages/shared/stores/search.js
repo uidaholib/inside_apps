@@ -41,6 +41,7 @@ export const searchResults$ = combineLatest([search$, groups$]).pipe(
     const url = `https://hub.arcgis.com/api/v3/datasets?q=${text}&filter[groupIds]=${filterByGroupIds}&page[size]=99`;
     return ajax(url);
   }),
+  // tap(data => console.log("search: ", data)),
   map((data) => {
     return data.response.data.map((result) => {
       let subtitle = '';
@@ -48,13 +49,14 @@ export const searchResults$ = combineLatest([search$, groups$]).pipe(
         subtitle = 'Idaho Framework Layer';
       }
       const itemId = result.links.itemPage.split("=")[1];
+      const description = result.attributes.searchDescription;
       return ({
         id: result.id,
         name: result.attributes.name,
         subtitle,
         owner: result.attributes.owner,
         type: result.attributes.type,
-        snippet: result.attributes.description,
+        snippet: description,
         thumbnailUrl: `https://www.arcgis.com/sharing/content/items/${itemId}/info/${result.attributes.thumbnailUrl}`,
         slug: result.attributes.slug,
         landingPage: result.links.self.replace("api/v3/", ""),
