@@ -2,9 +2,9 @@
     "private": true,
     "workspaces": ["packages/*"],
     "scripts": {
-        "cp:browse-org": "cp -r -p packages/browse-orgs/public/build/bundle.js* ../src/assets/lib/browse-org/",
-        "cp:browse-framework": "cp -r -p packages/browse-framework/public/build/bundle.js* ../src/assets/lib/browse-framework/",
-        "cp:search": "cp -r -p packages/search/public/build/bundle.js* ../src/assets/lib/search/",
+        "cp:browse-org": "cp -r -p packages/browse-orgs/public/build/bundle.js* build/browse-org/",
+        "cp:browse-framework": "cp -r -p packages/browse-framework/public/build/bundle.js* build/browse-framework/",
+        "cp:search": "cp -r -p packages/search/public/build/bundle.js* build/search/",
         "cp:all": "yarn cp:browse-org && yarn cp:browse-framework && yarn cp:search",
         "build:browse-org": "cd packages/browse-orgs && yarn build",
         "build:browse-framework": "cd packages/browse-framework && yarn build",

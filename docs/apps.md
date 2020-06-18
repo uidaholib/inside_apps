@@ -1,8 +1,14 @@
 # Inside Javascript apps
 
 The Javascript apps use Yarn worspaces to share code. The apps are built with SvelteJS.
-The /apps/packages/shared folder contains the shared code used by other apps in the `/packages/`.
 
+The `/packages/shared` folder contains the shared code used by other apps in the `/packages/`.
+
+## Dependencies
+To build and test the following should be installed:
+- Node and NPM (or Yarn). 
+
+## Scripts
 Following script are used:
 
 1. Development

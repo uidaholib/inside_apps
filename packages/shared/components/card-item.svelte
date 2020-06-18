@@ -32,8 +32,12 @@
   //https://uidaho.maps.arcgis.com/home/gallery.html?view=grid&sortOrder=asc&sortField=title
 </script>
 
-<div class="card mb-3 mr-3" style="width: 20rem;">
-  <img src={thumbnailUrl} class="card-img-top" alt="dataset image" style="height: 14rem;"/>
+<div class="card mb-3 mr-3" style="width: 20rem; font-size: 1rem;">
+  <img
+    src={thumbnailUrl}
+    class="card-img-top"
+    alt="dataset image"
+    style="height: 14rem;" />
   <div class="card-body">
     <h6 class="card-title text-primary text-truncate w-100" {title}>{title}</h6>
     {#if subtitle}
@@ -45,46 +49,34 @@
     {/if}
     {#if description}
       <style>
-
-        html {
-          --lh: 1.4rem;
-          line-height: var(--lh);
-        }
-
-        .truncate-overflow {
-          --max-lines: 3;
+        .text-fade {
           position: relative;
-          max-height: calc(var(--lh) * var(--max-lines));
-          overflow: hidden;
-          padding-right: 1rem; /* space for ellipsis */
+          height: 3.6em; /* exactly three lines */
         }
-        .truncate-overflow::before {
-          position: absolute;
-          content: "...";
-          inset-block-end: 0; /* "bottom" */
-          inset-inline-end: 0; /* "right" */
-        }
-        .truncate-overflow::after {
+        .text-fade:after {
           content: "";
+          text-align: right;
           position: absolute;
-          inset-inline-end: 0; /* "right" */
-          width: 1rem;
-          height: 1rem;
-          background: white;
+          bottom: 0;
+          right: 0;
+          width: 90%;
+          height: 1.5em;
+          background: linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 1) 90%
+          );
         }
       </style>
-      <p class="card-text truncate-overflow" style="height: 4.5rem; overflow: hidden;">
-        {@html description}
+      <p class="card-text text-fade w-100" style="height: 4.5rem; overflow: hidden;">
+        {description}
       </p>
     {/if}
 
   </div>
   <div class="card-body pt-0">
     <div class="d-flex justify-content-center w-100">
-      <a
-        on:click={openArcgis}
-        href="#"
-        class="btn btn-sm btn-info w-100 mr-2">
+      <a on:click={openArcgis} href="#" class="btn btn-sm btn-info w-100 mr-2">
         ArcGIS Item Details
       </a>
       <a on:click={openHub} href="#" class="btn btn-sm btn-info w-100">
