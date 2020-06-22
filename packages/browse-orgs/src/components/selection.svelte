@@ -1,7 +1,7 @@
 <script>
   import { createEventDispatcher } from "svelte";
   import { scale } from "svelte/transition";
-  import { sorter } from "@uidaholib/shared/stores/helpers";
+  import { sorter } from "@uidaholib/shared/api/helpers";
 
   export let items, selectedGroup;
 

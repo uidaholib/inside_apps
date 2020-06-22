@@ -1,6 +1,6 @@
 <script>
-  import { organizations$ } from "@uidaholib/shared/stores/organizations";
-  import { currentGroup$ } from "@uidaholib/shared/stores/group";
+  import { organizations$ } from "@uidaholib/shared/api/organizations";
+  import { currentGroup$ } from "@uidaholib/shared/api/group";
 
   import Selection from "./selection.svelte";
   import Sidebar from "./sidebar.svelte";

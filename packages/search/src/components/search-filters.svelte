@@ -5,7 +5,7 @@
     resultFilters$,
     filteredResults$,
     searchFilters$
-  } from "@uidaholib/shared/stores/filters";
+  } from "@uidaholib/shared/api/filters";
   import { onMount } from "svelte";
   import { scale } from "svelte/transition";
 

@@ -3,7 +3,7 @@
     search$,
     searchState$,
     SEARCH_STATES
-  } from "@uidaholib/shared/stores/search";
+  } from "@uidaholib/shared/api/search";
 
   let text = "";
 

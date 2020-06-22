@@ -6,7 +6,6 @@
   "dependencies": {
     "ramda": "^0.27.0",
     "rxjs": "^6.5.5",
-    "shave": "^2.5.9",
-    "xstate": "^4.10.0"
+    "shave": "^2.5.9"
   }
 }
