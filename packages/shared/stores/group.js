@@ -12,14 +12,9 @@ export const currentState$ = state.currentState;
 export const items$ = currentGroup$.asObservable().pipe(
   tap((_) => state.setLoading()),
   switchMap(group => {
-    // const query =  `group:${group.id}`;
-    // const url = `https://www.arcgis.com/sharing/rest/search?q=${query}&start=1&num=100&f=json`;
-    // const url = `https://opendata.arcgis.com/api/v2/groups/${group.id}?include=datasets`;
-    // const url = `https://opendata.arcgis.com/api/v2/groups/${group.id}/items?page[size]=100&include=datasets`;
     const url = `https://hub.arcgis.com/api/v3/datasets?filter[groupIds]=${group.id}&page[size]=99`;
     return ajax(url);
   }),
-  // tap(data => console.log("groups: ", data)),
   map((data) => {
     return data.response.data.map((result) => {
       let subtitle = '';

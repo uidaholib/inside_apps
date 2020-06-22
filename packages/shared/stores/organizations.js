@@ -13,7 +13,6 @@ import { combineToArray } from './helpers';
 
 
 const baseUrl = window.location.origin;
-// const dataUrl= `${baseUrl}/assets/data/organizations.json`;
 const dataUrl= "https://insideidaho.org/assets/data/organizations.json";
 
 

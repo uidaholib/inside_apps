@@ -32,7 +32,6 @@ export const searchFilters$ = combineLatest(
     map(([filters, results]) => {
       return filters.map((filter) => {
         const values = ["All", ...uniq(results.filter(result => result.org).map((result) => result[filter]))];
-        // const values = ["All", ...uniq(results.map((result) => result[filter]))];
         return { type: filter, values };
       });
     }),
