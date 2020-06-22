@@ -1,9 +1,9 @@
 <script>
-  import { items$, currentState$ } from "@uidaholib/shared/stores/group";
+  import { items$, currentState$ } from "@uidaholib/shared/api/group";
   import CatalogItem from "./catalog-item.svelte";
   import { fly, fade, slide, scale } from "svelte/transition";
   import { flip } from "svelte/animate";
-  import { sorter } from "@uidaholib/shared/stores/helpers";
+  import { sorter } from "@uidaholib/shared/api/helpers";
 
   export let selectedGroup;
 

@@ -1,7 +1,7 @@
 <script>
   import { createEventDispatcher } from "svelte";
   import Dropdown from "./dropdown.svelte";
-  import { sorter } from "@uidaholib/shared/stores/helpers";
+  import { sorter } from "@uidaholib/shared/api/helpers";
 
   export let selectedGroups = [],
     selectedGroup;

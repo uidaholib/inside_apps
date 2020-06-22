@@ -1,5 +1,5 @@
 <script>
-  import { items$, itemsState$ } from "@uidaholib/shared/stores/items";
+  import { items$, itemsState$ } from "@uidaholib/shared/api/items";
   import { fade } from "svelte/transition";
   import Item from "../components/item.svelte";
 </script>

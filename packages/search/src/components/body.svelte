@@ -2,7 +2,7 @@
   import Search from "./search.svelte";
   import SearchList from "./search-list.svelte";
   import SearchFilters from "./search-filters.svelte";
-  import { filteredResults$ } from "@uidaholib/shared/stores/filters";
+  import { filteredResults$ } from "@uidaholib/shared/api/filters";
   import {
     searchTerm$,
     search$,
@@ -10,7 +10,7 @@
     SEARCH_STATES,
     searchResults$,
     groups$
-  } from "@uidaholib/shared/stores/search";
+  } from "@uidaholib/shared/api/search";
   import { onMount } from "svelte";
 
   onMount(() => {

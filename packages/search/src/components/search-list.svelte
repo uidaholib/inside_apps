@@ -3,8 +3,8 @@
     searchState$,
     searchTerm$,
     SEARCH_STATES
-  } from "@uidaholib/shared/stores/search";
-  import { filteredResults$ } from "@uidaholib/shared/stores/filters";
+  } from "@uidaholib/shared/api/search";
+  import { filteredResults$ } from "@uidaholib/shared/api/filters";
   import SearchItem from "./search-item.svelte";
   import { flip } from "svelte/animate";
   import { fade } from "svelte/transition";

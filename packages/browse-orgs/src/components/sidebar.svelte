@@ -1,5 +1,5 @@
 <script>
-  import { organizations$ } from "@uidaholib/shared/stores/organizations";
+  import { organizations$ } from "@uidaholib/shared/api/organizations";
   import CatalogList from "./catalog-list.svelte";
   import GroupSelection from "./group-selection.svelte";
   import { focusable } from "@uidaholib/shared/actions/focusable";

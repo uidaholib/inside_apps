@@ -1,6 +1,6 @@
 <script>
-  import { searchFilters$, resultFilters$, filters$ } from "@uidaholib/shared/stores/filters";
-  import { searchResults$ } from "@uidaholib/shared/stores/search";
+  import { searchFilters$, resultFilters$, filters$ } from "@uidaholib/shared/api/filters";
+  import { searchResults$ } from "@uidaholib/shared/api/search";
   import { onMount } from "svelte";
   import Dropdown from "./dropdown.svelte";
   import { createEventDispatcher } from "svelte";
