@@ -2,6 +2,7 @@
 
 The Javascript apps use [Yarn Workspaces](https://classic.yarnpkg.com/en/docs/workspaces/) to share code. The apps are built with SvelteJS and are located in the `/packages/` folder.
 
+
 The `/packages/shared` folder contains the shared code used by other apps in the `/packages/`.
 
 ## Dependencies
@@ -13,6 +14,7 @@ To build and test the following should be installed:
 ## Scripts
 
 The following script are used:
+
 
 1. Development
    - cd into the app folder (example: `cd packages/search` from the root of the repository for the search app.)
