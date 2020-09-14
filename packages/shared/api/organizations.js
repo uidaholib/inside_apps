@@ -58,9 +58,11 @@ export const organizations$ = ajax(dataUrl)
         }),
       );
     }),
+    tap(data => console.log("data: ", data)),
     filter(org => org.groups.length > 0),
   ).pipe(
     combineToArray(),
+    tap(data => console.log("organizations: ", data)),
     share(),
   );
 

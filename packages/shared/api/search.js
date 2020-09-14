@@ -39,6 +39,7 @@ export const searchResults$ = combineLatest([search$, groups$]).pipe(
     const url = `https://hub.arcgis.com/api/v3/datasets?q=${text}&filter[groupIds]=${filterByGroupIds}&page[size]=99`;
     return ajax(url);
   }),
+  tap(data => console.log("search data: ", data)),
   map((data) => {
     return data.response.data.map((result) => {
       let subtitle = '';

@@ -6,7 +6,14 @@ import Item from "./item";
 const state = new AsyncState();
 export const itemsState$ = state.currentState;
 
-const url = `https://opendata.arcgis.com/api/v2/datasets?q=igc-ec&fields[items]=tags`;
+// TODO: show 'authoritative' or 'deprecated' badge
+// check 'content status' field in the item json response
+// 
+
+const tags = `idaho%20geospatial%20council%20-%20executive%20committee%20(igc-ec)%20framework%20layer`
+// const url = `https://opendata.arcgis.com/api/v2/datasets?q=${tags}&fields[items]=tags`;
+
+const url = `https://opendata.arcgis.com/api/v3/datasets?q=*&filter[tags]=any(${tags})`;
 
 export const items$ = ajax(url).pipe(
   tap((_) => state.setLoading()),
