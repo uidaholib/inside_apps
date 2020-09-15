@@ -18,7 +18,7 @@ export default class Item {
       subtitle,
       owner: result.attributes.owner,
       type: result.attributes.itemType,
-      description: result.attributes.description,
+      description: result.attributes.searchDescription,
       thumbnailUrl,
       slug: result.attributes.slug,
       landingPage: result.attributes.landingPage,
