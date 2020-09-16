@@ -17,8 +17,10 @@ const url = `https://opendata.arcgis.com/api/v3/datasets?q=*&filter[tags]=any(${
 
 export const items$ = ajax(url).pipe(
   tap((_) => state.setLoading()),
+  tap(data => console.log("log data: ", data)),
   map((data) => data.response.data.map((result) => Item.from(result))),
   tap((_) => state.setLoaded()),
+  tap(data => console.log("log data: ", data)),
   startWith([]),
   share()
 );
