@@ -17,6 +17,7 @@ export default class Item {
     const authoritative =
       result.attributes.orgName === result.attributes.source;
     const description = result.attributes.searchDescription;
+    const landingPage = result.links.self.replace("api/v3/", "");
     return {
       id: result.id,
       title: result.attributes.name,
@@ -28,7 +29,7 @@ export default class Item {
       description,
       thumbnailUrl,
       slug: result.attributes.slug,
-      landingPage: result.attributes.landingPage,
+      landingPage,
       url: result.attributes.url,
       org: result.attributes.source,
       authoritative,

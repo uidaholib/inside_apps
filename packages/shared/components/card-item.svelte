@@ -52,34 +52,55 @@
       .badge {
         display: inline-flex;
         align-items: center;
-        color: green;
-        background-color: #53ee5b;
-        border: 2px #006105;
+        color: #0ba80b;
+        background-color: #b6e6b9a3;
+        border-radius: 4rem;
+        margin-right: 0.2rem;
+        font-size: 0.80rem;
+      }
+      .badge-muted {
+        display: inline-flex;
+        align-items: center;
+        color: #008d97;
+        background-color: #b8faff;
         border-radius: 4rem;
       }
+      .badge-container {
+        display: flex;
+        align-items: center;
+        font-size: 0.80rem;
+      }
     </style>
-    {#if authoritative}
-      <h6 class="badge">
-        <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-          <path
-            fill="currentColor"
-            d="M10,17L5,12L6.41,10.58L10,14.17L17.59,6.58L19,8M12,2A10,10 0 0,0
-            2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
-        </svg>
-        <span
-          class="px-2 py-1 border-p-2 border-green rounded-full text-green
-          bg-green"
-          title={subtitle}>
-          {subtitle.length > 0 ? subtitle : 'Authoritative'}
+    <div class="badge-container">
+      {#if authoritative}
+        <span class="badge">
+          <svg class="" style="width:24px;height:24px" viewBox="0 0 24 24">
+            <path
+              fill="currentColor"
+              d="M10,17L5,12L6.41,10.58L10,14.17L17.59,6.58L19,8M12,2A10,10 0
+              0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+          </svg>
+          <span title="Authoritative">
+            Authoritative
+          </span>
         </span>
-      </h6>
-    {:else if subtitle.length}
-      <span
-        class="card-subtitle mb-2 text-muted text-truncate w-100"
-        title={subtitle}>
-        {subtitle}
-      </span>
-    {/if}
+      {/if}
+      {#if subtitle}
+        <span class="badge-muted">
+          <svg class="" style="width:24px;height:24px" viewBox="0 0 24 24">
+            <path
+              fill="currentColor"
+              d="M10,17L5,12L6.41,10.58L10,14.17L17.59,6.58L19,8M12,2A10,10 0
+              0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+          </svg>
+          <span
+            title={subtitle}>
+            {subtitle}
+          </span>
+        </span>
+      {/if}
+    </div>
+
     {#if description}
       <style>
         .text-fade {
