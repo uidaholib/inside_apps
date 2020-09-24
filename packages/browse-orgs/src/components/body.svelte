@@ -4,42 +4,29 @@
 
   import Selection from "./selection.svelte";
   import Sidebar from "./sidebar.svelte";
+  import { sorter } from "@uidaholib/shared/api/helpers";
 
   let selected;
+  let selectedGroups = [];
 
   let selectedGroup;
 
-  let selectedGroups = [];
-  $: {
-    if (selected) selectedGroups = [...selected.groups];
-    else if ($organizations$.length > 0)
-      selectedGroups = [...$organizations$[0].groups];
-  }
-
-  $: if (selected && !selectedGroup) {
-    selectedGroup = selected.groups[0];
-  }
-
-  $: {
-    currentGroup$.next(selectedGroup);
-  }
-
   function setSelectedGroup(event) {
     selectedGroup = event.detail;
+    console.log("set selected groups: ", selectedGroup);
+    currentGroup$.next(selectedGroup);
   }
 
   function selectionChanged(event) {
     selected = event.detail;
-    selectedGroup = null;
-    // gtag("event", "inside-browse-org-organization-click", {
-    //   event_category: "inside-browse-org",
-    //   event_label: selected.name
-    // });
+    selectedGroups = sorter("title")(selected.groups);
+    selectedGroup = selectedGroups[0];
+    console.log("selection: ", selected, selectedGroup, selectedGroups);
+    currentGroup$.next(selectedGroup);
   }
 </script>
 
 <div class="container mx-auto px-4 py-2">
-  
   <div class="d-flex flex-column">
     <div class="d-flex justify-content-center mb-3">
       <Selection items={$organizations$} on:change={selectionChanged} />
@@ -49,5 +36,4 @@
       <Sidebar {selectedGroups} {selectedGroup} on:change={setSelectedGroup} />
     {/if}
   </div>
-
 </div>

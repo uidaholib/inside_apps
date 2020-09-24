@@ -47,8 +47,8 @@
     style="height: 14rem;" />
   <div class="card-body">
     <h6 class="card-title text-primary text-truncate w-100" {title}>{title}</h6>
-
-    <style>
+    {#if subtitle}<strong class="font-bold" title={subtitle}> {subtitle} </strong>{/if}
+    <!--<style>
       .badge {
         display: inline-flex;
         align-items: center;
@@ -70,8 +70,7 @@
         align-items: center;
         font-size: 0.80rem;
       }
-    </style>
-    <div class="badge-container">
+    </style><div class="badge-container">
       {#if authoritative}
         <span class="badge">
           <svg class="" style="width:24px;height:24px" viewBox="0 0 24 24">
@@ -99,7 +98,7 @@
           </span>
         </span>
       {/if}
-    </div>
+    </div> -->
 
     {#if description}
       <style>
@@ -128,7 +127,6 @@
         {description}
       </p>
     {/if}
-
   </div>
   <div class="card-body pt-0">
     <div class="d-flex justify-content-center w-100">
@@ -139,7 +137,5 @@
         Open Data Item Details
       </a>
     </div>
-
   </div>
-
 </div>
