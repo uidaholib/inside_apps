@@ -1,30 +1,21 @@
 <script>
-  import { createEventDispatcher } from "svelte";
+  import { createEventDispatcher, onMount } from "svelte";
   import Dropdown from "./dropdown.svelte";
   import { sorter } from "@uidaholib/shared/api/helpers";
 
-  export let selectedGroups = [],
-    selectedGroup;
-
+  export let selectedGroups = [];
   let title = "Groups";
-  $: selected = selectedGroup.title;
-
-  $: sortedSelectedGroups = sorter("title")(selectedGroups);
+  let selected;
 
   const dispatch = createEventDispatcher();
 
   function setSelectedGroup(group) {
     dispatch("change", group);
-    selected = group.title;
-    // gtag("event", "inside-browse-org-group-click", {
-    //   event_category: "inside-browse-org",
-    //   event_label: selected
-    // });
   }
 
-  const onSelectionChanged = event => {
-    const group = selectedGroups.find(g => g.title === event.target.value);
-    setSelectedGroup(group);
+  const onSelectionChanged = (event) => {
+    selected = selectedGroups.find((g) => g.title === event.target.value);
+    setSelectedGroup(selected);
   };
 </script>
 
@@ -33,8 +24,9 @@
   <select
     class="form-control"
     id="GroupFormControlSelect1"
+    bind:value={selected}
     on:change={onSelectionChanged}>
-    {#each sortedSelectedGroups as group (group.id)}
+    {#each selectedGroups as group (group.id)}
       <option>{group.title}</option>
     {/each}
   </select>

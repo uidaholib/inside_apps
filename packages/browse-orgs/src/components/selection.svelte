@@ -1,20 +1,25 @@
 <script>
-  import { createEventDispatcher } from "svelte";
+  import { createEventDispatcher, onMount } from "svelte";
   import { scale } from "svelte/transition";
   import { sorter } from "@uidaholib/shared/api/helpers";
 
-  export let items, selectedGroup;
+  export let items;
 
   $: sortedItems = sorter("name")(items);
 
   const dispatch = createEventDispatcher();
 
-  let selected;
+  $: if (!selected && items.length > 0) {
+    selected = items[0];
+    dispatch("change", selected);
+    console.log("initial selection: ", selected);
+  }
 
-  const title = "Select an organization";
+  let selected;
 
   function onChange() {
     dispatch("change", selected);
+    console.log("on change: ", selected);
   }
 </script>
 
@@ -26,7 +31,7 @@
       transition:scale
       class="form-control"
       id="OrgFormControlSelect1">
-      <option value={title} disabled selected>{title}</option>
+      <!-- <option value={title} disabled selected>{title}</option> -->
       {#each sortedItems as item (item.id)}
         <option value={item}>{item.name}</option>
       {/each}

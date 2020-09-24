@@ -1,18 +1,18 @@
-import { BehaviorSubject, of } from 'rxjs';
-import { startWith, switchMap, map, tap } from 'rxjs/operators';
-import { ajax } from 'rxjs/ajax';
+import { BehaviorSubject, of } from "rxjs";
+import { startWith, switchMap, map, tap, filter } from "rxjs/operators";
+import { ajax } from "rxjs/ajax";
 export const currentGroup$ = new BehaviorSubject(of(null));
 import Item from "./item";
 
-import AsyncState from './async_state';
+import AsyncState from "./async_state";
 
 const state = new AsyncState();
 export const currentState$ = state.currentState;
 
-
 export const items$ = currentGroup$.asObservable().pipe(
+  filter((data) => data),
   tap((_) => state.setLoading()),
-  switchMap(group => {
+  switchMap((group) => {
     const url = `https://hub.arcgis.com/api/v3/datasets?filter[groupIds]=${group.id}&page[size]=99`;
     return ajax(url);
   }),
@@ -42,5 +42,5 @@ export const items$ = currentGroup$.asObservable().pipe(
   //   });
   // }),
   tap((_) => state.setLoaded()),
-  startWith([]),
+  startWith([])
 );
